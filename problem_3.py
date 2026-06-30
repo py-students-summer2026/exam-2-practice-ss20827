@@ -55,7 +55,30 @@ def qualify():
 
     """
     # write your code below this line
+    print("Welcome to the credit card qualifier!")
 
+    user_income = input("How much do you make per year ($)? ")
+    user_income = user_income.replace(",", "")
+    user_income = user_income.replace("$", "")
+    income = float(user_income)
+
+    home_owner = input("Do you own a home (y/n)? ")
+
+    if income < 30000:
+        print("Sorry, you don't qualify. Your income is too low.")
+    elif home_owner.lower() == "y":
+        print("You qualify!")
+    else:
+        user_rent = input("How much do you pay for rent per month ($)? ")
+        user_rent = user_rent.replace(",", "")
+        user_rent = user_rent.replace("$", "")
+        rent = float(user_rent)
+
+        maximum_rent = income * 0.05
+        if rent <= maximum_rent:
+            print("You qualify!")
+        else:
+            print("Sorry, you don't qualify. Your rent is too high.")
 
 # -------------------------------------- #
 # Do not modify the code below this line #

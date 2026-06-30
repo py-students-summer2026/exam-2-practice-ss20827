@@ -46,7 +46,23 @@ def encode(filepath):
         "fair": "exceedingly generous",
     }
     # write your code below this line
+    file = open(filepath, "r")
+    original_text = file.read()
+    file.close()
 
+    new_text = original_text
+    swapped = False
+
+    for word, replacement in swaps.items():
+        if word in new_text:
+            swapped = True
+        new_text = new_text.replace(word, replacement)
+
+    file = open(filepath, "w")
+    file.write(new_text)
+    file.close()
+
+    return swapped
 
 # -------------------------------------- #
 # Do not modify the code below this line #
